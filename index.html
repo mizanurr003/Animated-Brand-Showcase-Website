@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://static.readdy.ai/static/e.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Roast - Your Morning's Best-Kept Secret</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B4513',
+                        secondary: '#D2B48C'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    },
+                    fontFamily: {
+                        'pacifico': ['Pacifico', 'serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid #8B4513;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+            from,
+            to {
+                border-color: transparent
+            }
+            50% {
+                border-color: #8B4513
+            }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px)
+            }
+            50% {
+                transform: translateY(-20px)
+            }
+        }
+
+        .coffee-steam {
+            animation: steam 4s ease-in-out infinite;
+        }
+
+        @keyframes steam {
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: translateY(0) scale(1)
+            }
+            50% {
+                opacity: 0.7;
+                transform: translateY(-30px) scale(1.1)
+            }
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.8s ease-out;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.8s ease-out;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.6s ease-out;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .product-card {
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .value-pillar {
+            transition: all 0.4s ease;
+        }
+
+        .value-pillar:hover {
+            transform: scale(1.05);
+        }
+
+        .coffee-bean {
+            animation: rotate 8s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg)
+            }
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .pulse-gentle {
+            animation: pulse-gentle 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-gentle {
+            0%,
+            100% {
+                opacity: 1
+            }
+            50% {
+                opacity: 0.7
+            }
+        }
+
+        .fill-animation {
+            transition: height 0.3s ease;
+        }
+
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        .parallax {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        .timeline-item {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .roasting-animation {
+            animation: roasting 3s ease-in-out infinite;
+        }
+
+        @keyframes roasting {
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg)
+            }
+            25% {
+                transform: scale(1.1) rotate(5deg)
+            }
+            75% {
+                transform: scale(0.9) rotate(-5deg)
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-900 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="font-pacifico text-2xl text-primary">Secret Roast</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#story" class="text-gray-700 hover:text-primary transition-colors">Our Story</a>
+                    <a href="#products" class="text-gray-700 hover:text-primary transition-colors">Products</a>
+                    <a href="#values" class="text-gray-700 hover:text-primary transition-colors">Values</a>
+                    <a href="#process" class="text-gray-700 hover:text-primary transition-colors">Process</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
+                </div>
+                <button class="md:hidden w-8 h-8 flex items-center justify-center">
+                    <i class="ri-menu-line text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=Premium%20coffee%20beans%20scattered%20on%20dark%20wooden%20surface%20with%20warm%20golden%20lighting%20and%20steam%20rising%2C%20minimalist%20composition%20with%20left%20side%20having%20warm%20gradient%20overlay%20for%20text%20placement%2C%20professional%20product%20photography%20style%2C%20rich%20brown%20and%20gold%20tones%2C%20cozy%20morning%20atmosphere&width=1920&height=1080&seq=hero-bg&orientation=landscape'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent"></div>
+
+        <!-- Floating Coffee Beans -->
+        <div class="absolute top-20 right-20 w-8 h-8 coffee-bean opacity-30">
+            <i class="ri-circle-fill text-primary text-2xl"></i>
+        </div>
+        <div class="absolute top-40 right-40 w-6 h-6 coffee-bean opacity-20" style="animation-delay: 2s;">
+            <i class="ri-circle-fill text-primary text-xl"></i>
+        </div>
+        <div class="absolute bottom-32 right-32 w-10 h-10 coffee-bean opacity-25" style="animation-delay: 4s;">
+            <i class="ri-circle-fill text-primary text-3xl"></i>
+        </div>
+
+        <!-- Steam Animation -->
+        <div class="absolute top-1/4 right-1/4 coffee-steam">
+            <div class="w-2 h-20 bg-gradient-to-t from-transparent via-gray-300 to-transparent rounded-full opacity-40"></div>
+        </div>
+        <div class="absolute top-1/3 right-1/3 coffee-steam" style="animation-delay: 1s;">
+            <div class="w-1 h-16 bg-gradient-to-t from-transparent via-gray-300 to-transparent rounded-full opacity-30"></div>
+        </div>
+
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl">
+                <h1 class="font-pacifico text-6xl md:text-8xl text-primary mb-8 fade-in-up">Secret Roast</h1>
+                <div class="typewriter text-2xl md:text-3xl text-gray-700 mb-12 font-medium">Your Morning's Best-Kept Secret</div>
+                <button class="float-animation bg-primary text-white px-8 py-4 !rounded-button text-lg font-semibold hover:bg-primary/90 transition-all duration-300 whitespace-nowrap">
+                    Discover Our Story
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Timeline -->
+    <section id="story" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Journey</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">From a small family roastery to your morning ritual, discover the story behind every perfectly crafted cup.</p>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-primary/20"></div>
+
+                <!-- Timeline Items -->
+                <div class="space-y-20">
+                    <div class="timeline-item flex items-center">
+                        <div class="w-1/2 pr-12 text-right slide-in-left">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">The Beginning</h3>
+                            <p class="text-gray-600 mb-4">Started in a small garage with a passion for perfect coffee and a dream to share exceptional flavors with the world.</p>
+                            <span class="text-primary font-semibold">2018</span>
+                        </div>
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center relative z-10">
+                            <i class="ri-home-line text-white text-xl"></i>
+                        </div>
+                        <div class="w-1/2 pl-12">
+                            <img src="https://readdy.ai/api/search-image?query=Small%20cozy%20coffee%20roastery%20workshop%20with%20vintage%20roasting%20equipment%2C%20warm%20wooden%20interior%2C%20coffee%20beans%20in%20burlap%20sacks%2C%20artisanal%20craftsmanship%20atmosphere%2C%20golden%20hour%20lighting%2C%20rustic%20and%20authentic%20feel&width=400&height=300&seq=story-1&orientation=landscape"
+                                alt="Our Beginning" class="rounded-lg shadow-lg">
+                        </div>
+                    </div>
+
+                    <div class="timeline-item flex items-center">
+                        <div class="w-1/2 pr-12">
+                            <img src="https://readdy.ai/api/search-image?query=Coffee%20cupping%20session%20with%20multiple%20coffee%20cups%20arranged%20on%20wooden%20table%2C%20professional%20coffee%20tasting%20setup%2C%20steam%20rising%20from%20cups%2C%20coffee%20beans%20scattered%20around%2C%20warm%20ambient%20lighting%2C%20quality%20control%20atmosphere&width=400&height=300&seq=story-2&orientation=landscape"
+                                alt="Perfect Roast" class="rounded-lg shadow-lg">
+                        </div>
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center relative z-10">
+                            <i class="ri-fire-line text-white text-xl"></i>
+                        </div>
+                        <div class="w-1/2 pl-12 slide-in-right">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">The Perfect Roast</h3>
+                            <p class="text-gray-600 mb-4">After countless hours of experimentation, we discovered our signature roasting technique that brings out the unique character in every bean.</p>
+                            <span class="text-primary font-semibold">2024</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item flex items-center">
+                        <div class="w-1/2 pr-12 text-right slide-in-left">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Going Digital</h3>
+                            <p class="text-gray-600 mb-4">Launched our online presence and started sharing our carefully crafted blends with coffee lovers across the country.</p>
+                            <span class="text-primary font-semibold">2025</span>
+                        </div>
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center relative z-10">
+                            <i class="ri-global-line text-white text-xl"></i>
+                        </div>
+                        <div class="w-1/2 pl-12">
+                            <img src="https://readdy.ai/api/search-image?query=Modern%20coffee%20packaging%20and%20shipping%20setup%2C%20branded%20coffee%20bags%20on%20wooden%20surface%2C%20laptop%20showing%20online%20store%2C%20professional%20e-commerce%20photography%2C%20clean%20and%20organized%20workspace&width=400&height=300&seq=story-3&orientation=landscape"
+                                alt="Going Digital" class="rounded-lg shadow-lg">
+                        </div>
+                    </div>
+
+                    <div class="timeline-item flex items-center">
+                        <div class="w-1/2 pr-12">
+                            <img src="https://readdy.ai/api/search-image?query=Happy%20customers%20enjoying%20coffee%20in%20various%20settings%2C%20diverse%20group%20of%20people%20with%20coffee%20cups%2C%20morning%20rituals%2C%20satisfied%20expressions%2C%20warm%20and%20inviting%20atmosphere%2C%20community%20feeling&width=400&height=300&seq=story-4&orientation=landscape"
+                                alt="Community" class="rounded-lg shadow-lg">
+                        </div>
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center relative z-10">
+                            <i class="ri-heart-line text-white text-xl"></i>
+                        </div>
+                        <div class="w-1/2 pl-12 slide-in-right">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Building Community</h3>
+                            <p class="text-gray-600 mb-4">Today, we're proud to be part of thousands of morning rituals, bringing joy and energy to coffee lovers everywhere.</p>
+                            <span class="text-primary font-semibold">Present</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section id="products" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Premium Collection</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Each blend is carefully crafted to deliver a unique experience, from bold morning energizers to smooth evening delights.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden scale-in">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=Premium%20dark%20roast%20coffee%20beans%20in%20elegant%20packaging%2C%20rich%20brown%20coffee%20beans%20spilling%20from%20branded%20bag%2C%20professional%20product%20photography%2C%20warm%20lighting%2C%20luxury%20coffee%20presentation%20on%20marble%20surface&width=400&height=300&seq=product-1&orientation=landscape')"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Midnight Blend</h3>
+                        <p class="text-gray-600 mb-4">Bold and robust with notes of dark chocolate and caramel. Perfect for those who love a strong, full-bodied coffee experience.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-semibold text-lg">Dark Roast</span>
+                            <button class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden scale-in" style="animation-delay: 0.2s;">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=Medium%20roast%20coffee%20beans%20in%20premium%20packaging%2C%20golden%20brown%20coffee%20beans%20with%20smooth%20texture%2C%20elegant%20product%20display%2C%20natural%20lighting%2C%20sophisticated%20coffee%20presentation%20on%20wooden%20background&width=400&height=300&seq=product-2&orientation=landscape')"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Golden Hour</h3>
+                        <p class="text-gray-600 mb-4">Smooth and balanced with hints of vanilla and nuts. The perfect companion for your morning routine and afternoon breaks.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-semibold text-lg">Medium Roast</span>
+                            <button class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden scale-in" style="animation-delay: 0.4s;">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=Light%20roast%20coffee%20beans%20in%20artisan%20packaging%2C%20bright%20golden%20coffee%20beans%20with%20delicate%20appearance%2C%20premium%20coffee%20product%20photography%2C%20soft%20natural%20lighting%2C%20refined%20presentation%20on%20clean%20white%20surface&width=400&height=300&seq=product-3&orientation=landscape')"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Morning Whisper</h3>
+                        <p class="text-gray-600 mb-4">Light and bright with floral notes and citrus undertones. A gentle awakening that celebrates the origin's natural flavors.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-semibold text-lg">Light Roast</span>
+                            <button class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Values -->
+    <section id="values" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What Drives Us</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Three core principles guide everything we do, from sourcing the finest beans to delivering exceptional experiences.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="value-pillar bg-white rounded-2xl p-8 text-center shadow-lg scale-in">
+                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="ri-award-line text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Quality</h3>
+                    <p class="text-gray-600 leading-relaxed">We source only the finest beans from sustainable farms and roast them to perfection, ensuring every cup meets our exacting standards.</p>
+                </div>
+
+                <div class="value-pillar bg-white rounded-2xl p-8 text-center shadow-lg scale-in" style="animation-delay: 0.2s;">
+                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="ri-hammer-line text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Craft</h3>
+                    <p class="text-gray-600 leading-relaxed">Every batch is carefully crafted using traditional techniques combined with modern precision, creating unique flavor profiles that tell a story.</p>
+                </div>
+
+                <div class="value-pillar bg-white rounded-2xl p-8 text-center shadow-lg scale-in" style="animation-delay: 0.4s;">
+                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="ri-key-line text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Secret</h3>
+                    <p class="text-gray-600 leading-relaxed">Our proprietary roasting methods and carefully guarded blend recipes create distinctive flavors that you won't find anywhere else.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Behind the Scenes -->
+    <section id="process" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Behind the Scenes</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Witness the artistry and precision that goes into every batch of Secret Roast coffee.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-50 rounded-2xl p-6 text-center scale-in">
+                    <div class="w-24 h-24 mx-auto mb-4 roasting-animation">
+                        <img src="https://readdy.ai/api/search-image?query=Coffee%20beans%20being%20selected%20and%20sorted%20by%20hand%2C%20quality%20control%20process%2C%20premium%20green%20coffee%20beans%20on%20wooden%20surface%2C%20artisan%20hands%20carefully%20choosing%20beans%2C%20professional%20coffee%20preparation&width=200&height=200&seq=process-1&orientation=squarish"
+                            alt="Bean Selection" class="w-full h-full object-cover rounded-xl">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Bean Selection</h3>
+                    <p class="text-gray-600 text-sm">Hand-picked premium beans from the world's finest coffee regions.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-6 text-center scale-in" style="animation-delay: 0.2s;">
+                    <div class="w-24 h-24 mx-auto mb-4 roasting-animation" style="animation-delay: 1s;">
+                        <img src="https://readdy.ai/api/search-image?query=Coffee%20roasting%20machine%20in%20action%20with%20coffee%20beans%20tumbling%2C%20professional%20roasting%20equipment%2C%20warm%20golden%20lighting%2C%20steam%20and%20heat%20effects%2C%20artisanal%20coffee%20roasting%20process&width=200&height=200&seq=process-2&orientation=squarish"
+                            alt="Roasting Process" class="w-full h-full object-cover rounded-xl">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Roasting Process</h3>
+                    <p class="text-gray-600 text-sm">Precision roasting using our secret techniques and temperature profiles.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-6 text-center scale-in" style="animation-delay: 0.4s;">
+                    <div class="w-24 h-24 mx-auto mb-4 roasting-animation" style="animation-delay: 2s;">
+                        <img src="https://readdy.ai/api/search-image?query=Coffee%20quality%20testing%20and%20cupping%20session%2C%20professional%20tasting%20setup%20with%20multiple%20cups%2C%20coffee%20evaluation%20process%2C%20steam%20rising%20from%20cups%2C%20quality%20control%20atmosphere&width=200&height=200&seq=process-3&orientation=squarish"
+                            alt="Quality Testing" class="w-full h-full object-cover rounded-xl">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Quality Testing</h3>
+                    <p class="text-gray-600 text-sm">Rigorous cupping and tasting to ensure perfect flavor balance.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-6 text-center scale-in" style="animation-delay: 0.6s;">
+                    <div class="w-24 h-24 mx-auto mb-4 roasting-animation" style="animation-delay: 3s;">
+                        <img src="https://readdy.ai/api/search-image?query=Premium%20coffee%20packaging%20process%2C%20branded%20coffee%20bags%20being%20filled%20and%20sealed%2C%20professional%20packaging%20equipment%2C%20clean%20and%20organized%20workspace%2C%20quality%20packaging%20materials&width=200&height=200&seq=process-4&orientation=squarish"
+                            alt="Packaging" class="w-full h-full object-cover rounded-xl">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Packaging</h3>
+                    <p class="text-gray-600 text-sm">Carefully packaged to preserve freshness and deliver peak flavor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="py-20 bg-primary text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Unlock Coffee Secrets</h2>
+                <p class="text-xl mb-12 text-white/90">Join our exclusive community and be the first to discover new blends, brewing tips, and special offers.</p>
+
+                <div class="max-w-md mx-auto">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center">
+                            <i class="ri-mail-line text-white/70 text-xl"></i>
+                        </div>
+                        <input type="email" placeholder="Enter your email address" class="w-full pl-12 pr-32 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50">
+                        <button class="absolute right-2 top-2 bottom-2 bg-white text-primary px-6 !rounded-full font-semibold hover:bg-white/90 transition-colors whitespace-nowrap">
+                            Subscribe
+                        </button>
+                    </div>
+
+                    <!-- Animated Coffee Cup -->
+                    <div class="mt-8 flex justify-center">
+                        <div class="relative">
+                            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                                <i class="ri-cup-line text-white text-2xl"></i>
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-6 h-6 bg-secondary rounded-full pulse-gentle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="font-pacifico text-3xl text-primary mb-4">Secret Roast</div>
+                    <p class="text-gray-400 mb-6 max-w-md">Crafting exceptional coffee experiences, one cup at a time. Your morning's best-kept secret awaits.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-icon w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary">
+                            <i class="ri-facebook-fill text-lg"></i>
+                        </a>
+                        <a href="#" class="social-icon w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary">
+                            <i class="ri-instagram-line text-lg"></i>
+                        </a>
+                        <a href="#" class="social-icon w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary">
+                            <i class="ri-twitter-x-line text-lg"></i>
+                        </a>
+                        <a href="#" class="social-icon w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary">
+                            <i class="ri-youtube-line text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#story" class="text-gray-400 hover:text-white transition-colors">Our Story</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white transition-colors">Products</a></li>
+                        <li><a href="#values" class="text-gray-400 hover:text-white transition-colors">Values</a></li>
+                        <li><a href="#process" class="text-gray-400 hover:text-white transition-colors">Process</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="ri-mail-line mr-2"></i> hello@secretroast.com
+                        </li>
+                        <li class="flex items-center">
+                            <i class="ri-phone-line mr-2"></i> (555) 123-4567
+                        </li>
+                        <li class="flex items-center">
+                            <i class="ri-map-pin-line mr-2"></i> Portland, Oregon
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Secret Roast. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg opacity-0 transition-all duration-300 hover:bg-primary/90 z-50">
+        <i class="ri-arrow-up-line text-xl"></i>
+    </button>
+
+    <script id="scroll-animations">
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            const animatedElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right, .scale-in, .timeline-item');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+    </script>
+
+    <script id="back-to-top">
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopButton = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.opacity = '1';
+                    backToTopButton.style.transform = 'translateY(0)';
+                } else {
+                    backToTopButton.style.opacity = '0';
+                    backToTopButton.style.transform = 'translateY(10px)';
+                }
+            });
+
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+    <script id="smooth-scroll">
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script id="hero-cta">
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroButton = document.querySelector('section button');
+
+            heroButton.addEventListener('click', function() {
+                const storySection = document.getElementById('story');
+                const offsetTop = storySection.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
